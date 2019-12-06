@@ -54,7 +54,7 @@ int main() {
 
 bool encrypt(string file, string key) {
 	ifstream inputfile;
-	string str[20];
+	string str[50];
 	string get;
 	int i = 0;
 	inputfile.open(file, ios::in);
@@ -73,7 +73,8 @@ bool encrypt(string file, string key) {
 		string line = str[i];
 		if (line == "") {
 			break;
-		}		while (key.length() > j) {
+		}		
+		while (line.length() > j) {
 			line.at(l++) += key.at(j++);
 			if (j == key.length()) {
 				j = 0;
@@ -104,7 +105,7 @@ bool encrypt(string file, string key) {
 }
 bool decrypt(string file, string key) {
 	ifstream inputfile;
-	string str[20];
+	string str[50];
 	string get;
 	int i = 0;
 	inputfile.open(file, ios::in);
@@ -123,7 +124,8 @@ bool decrypt(string file, string key) {
 		string line = str[i];
 		if (line == "") {
 			break;
-		}		while (key.length() > j) {
+		}		
+		while (line.length() > j) {
 			line.at(l++) -= key.at(j++);
 			if (j == key.length()) {
 				j = 0;
